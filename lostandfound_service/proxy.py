@@ -6,5 +6,8 @@ from django.http import HttpResponse
 def proxy(request):
     request.encoding='utf-8'
     g = request.GET
-    r = requests.get(g["url"])
+    if "params" in g:
+        r = requests.get(g["url"], params=g["params"])
+    else:
+        r = requests.get(g["url"])
     return HttpResponse(r.text)
