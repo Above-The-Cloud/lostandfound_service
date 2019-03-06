@@ -17,8 +17,9 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 
-from lostandfound_service import proxy
+from lostandfound_service import proxy, hello
 
 urlpatterns = [
     url('^proxy$', proxy.proxy),
+    url('^hello$', hello.hello),
 ]
