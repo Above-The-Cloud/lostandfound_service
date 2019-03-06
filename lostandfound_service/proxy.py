@@ -10,4 +10,6 @@ def proxy(request):
         r = requests.get(g["url"], params=g["params"])
     else:
         r = requests.get(g["url"])
-    return HttpResponse(r.text)
+    hr = HttpResponse(r.text)
+    hr.__setitem__("access-Control-Allow-Origin", "*")
+    return hr
