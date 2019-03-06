@@ -4,4 +4,6 @@ from django.http import HttpResponse
 
 # 接收请求数据
 def hello(request):
-    return HttpResponse("hello")
+     hr = HttpResponse("hello")
+     hr.__setitem__("access-Control-Allow-Origin","*")
+     return hr
